@@ -44,8 +44,8 @@ class ManifoldMC {
 
             File(parent, "build.properties").writeText(sb.toString())
 
-            File(parent, "build/chiseledSrc").mkdir()
-            File(parent, "build/chiseledSrc/build.properties").writeText(sb.toString())
+            // File(parent, "build/chiseledSrc/").mkdir()
+            // File(parent, "build/chiseledSrc/build.properties").writeText(sb.toString())
 
             if (isActive)
                 File(parent, "../../src/main/build.properties").writeText(sb.toString())

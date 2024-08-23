@@ -23,7 +23,7 @@ mod.namespace=examplemod
 mod.id=example_mod
 mod.name=ExampleMod
 # English Display Info
-mod.author=Toni
+mod.author=toni
 mod.github=anthxnymc
 mod.display_name=Example Mod
 mod.description=Yet Another Example Mod

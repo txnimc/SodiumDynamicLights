@@ -14,14 +14,6 @@
 	"license": "${license}",
 	"icon": "assets/${namespace}/textures/mod_logo.png",
 	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"${group}.${namespace}.${name}"
-		],
-		"client": [
-			"${group}.${namespace}.${name}"
-		]
-	},
 	"mixins": [
 		"mixins.${id}.json"
 	],

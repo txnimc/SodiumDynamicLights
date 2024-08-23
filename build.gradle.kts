@@ -7,7 +7,7 @@ val settings = object : TxniTemplateSettings {
 		}
 
 		override fun addFabric(deps: DependencyHandlerScope) {
-
+			deps.modImplementation(modrinth("sodium", "mc1.21-0.6.0-beta.1-fabric"))
 		}
 
 		override fun addForge(deps: DependencyHandlerScope) {
@@ -15,7 +15,10 @@ val settings = object : TxniTemplateSettings {
 		}
 
 		override fun addNeo(deps: DependencyHandlerScope) {
+			deps.implementation(modrinth("sodium", "mc1.21-0.6.0-beta.1-neoforge"))
 
+			deps.compileOnly("org.sinytra.forgified-fabric-api:fabric-api-base:0.4.42+d1308dedd1")
+			deps.compileOnly("org.sinytra.forgified-fabric-api:fabric-renderer-api-v1:3.4.0+acb05a39d1")
 		}
 	}
 
@@ -27,6 +30,8 @@ val settings = object : TxniTemplateSettings {
 			if (isFabric) {
 				deps.requires("fabric-api")
 			}
+
+			deps.requires("sodium")
 		}
 
 		override fun addCurseForge(deps: DependencyContainer) {
@@ -100,6 +105,7 @@ repositories {
 	maven("https://maven.terraformersmc.com/releases/")
 	maven("https://raw.githubusercontent.com/Fuzss/modresources/main/maven/")
 	maven("https://maven.parchmentmc.org")
+	maven("https://maven.su5ed.dev/releases")
 }
 
 dependencies {
@@ -127,11 +133,6 @@ dependencies {
 		settings.depsHandler.addFabric(this)
 		modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fapi")}")
 		modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
-
-		when (mcVersion) {
-			"1.19.2" -> modApi("net.minecraftforge:forgeconfigapiport-fabric:${property("deps.forgeconfigapi")}")
-			else -> modApi("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${property("deps.forgeconfigapi")}")
-		}
 	}
 
 	if (isForge) {
@@ -149,7 +150,13 @@ dependencies {
 
 // Loom config
 loom {
-	accessWidenerPath.set(rootProject.file("src/main/resources/${mod.id}.accesswidener"))
+	try {
+		accessWidenerPath.set(rootProject.file("src/main/resources/${mod.id}.accesswidener"))
+	}
+	catch (_: Exception) {
+		println("Could not set accesswidener!")
+	}
+
 
 	if (loader == "forge") forge {
 		convertAccessWideners.set(true)
@@ -187,7 +194,7 @@ project.tasks.register("setupManifoldPreprocessors") {
 
 tasks.setupChiseledBuild { finalizedBy("setupManifoldPreprocessors") }
 
-tasks.register<RenameExampleMod>("renameExampleMod", rootDir, mod.id, mod.name, mod.displayName, mod.namespace, mod.author).configure {
+tasks.register<RenameExampleMod>("renameExampleMod", rootDir, mod.id, mod.name, mod.displayName, mod.namespace, mod.group).configure {
 	group = "build helpers"
 	description = "Renames the example mod to match the mod ID, name, and display name in gradle.properties"
 }
