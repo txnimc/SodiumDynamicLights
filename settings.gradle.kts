@@ -30,4 +30,4 @@ extensions.configure<StonecutterSettings> {
 	create(rootProject)
 }
 
-rootProject.name = "TxniTemplate"
+rootProject.name = "SodiumLeafCulling"
