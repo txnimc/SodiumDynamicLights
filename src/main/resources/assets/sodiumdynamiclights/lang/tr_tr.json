@@ -1,0 +1,18 @@
+{
+  "sodiumdynamiclights.menu.light_sources": "Dinamik Işık Kaynakları",
+  "sodiumdynamiclights.menu.title": "SodiumDynamicLights (LambDinamikIşıklar) Ayarları",
+  "sodiumdynamiclights.menu.canvas.1": "Varlıkların dinamik ışıklandırmasını devre dışı bırakmanız Canvas'la beraber önerilir!",
+  "sodiumdynamiclights.menu.canvas.2": "Canvas'la beraber dinamik ışıklandırma şu an yavaş performansta!",
+  "sodiumdynamiclights.option.light_sources.block_entities": "Varlıkları Engelle",
+  "sodiumdynamiclights.option.light_sources.entities": "Varlıklar",
+  "sodiumdynamiclights.option.light_sources.water_sensitive_check": "Suya Duyarlılık Kontrolü",
+  "sodiumdynamiclights.option.mode": "Dinamik Işıklar",
+  "sodiumdynamiclights.tooltip.block_entities": "Blok varlıkların dinamik ışıklandırmasını etkinleştirir.",
+  "sodiumdynamiclights.tooltip.creeper_lighting": "Creeper'a dinamik ışıklandırma ekler.\n- %s Creeper ışıklandırmasını devre dışı bırakır.\n- %s sabit bir ışıltı ekler.\n- %s dinamik bir ışıltı ekler.",
+  "sodiumdynamiclights.tooltip.entities": "Varlıkların dinamik ışıklandırmasını etkinleştirir. Not: Oyuncularda her zaman aktiftir.",
+  "sodiumdynamiclights.tooltip.mode.1": "Dinamık ışıkları etkinleştirir. Örneğin eğer bir oyuncu meşale tutuyorsa bulunduğu alanı aydınlatır.",
+  "sodiumdynamiclights.tooltip.mode.2": "%s ve %s arkada biraz gecikebilir (lag) ama ışık güncellemelerini azaltır.",
+  "sodiumdynamiclights.tooltip.mode.3": "%s bir yumuşak dinamik ışıklandırmadır.",
+  "sodiumdynamiclights.tooltip.tnt_lighting": "TNT'ye dinamik ışıklandırma ekler.\n- %s TNT ışıklandırmasını devre dışı bırakır.\n- %s sabit bir ışıltı ekler.\n- %s dinamik bir ışıltı ekler.",
+  "sodiumdynamiclights.tooltip.water_sensitive": "Suya duyarlı ışık kaynaklarını etkinleştirir. Bazı eşyalar suyun içinde batarken ışık yaymayacak."
+}

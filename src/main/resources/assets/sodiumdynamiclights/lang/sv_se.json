@@ -1,0 +1,18 @@
+{
+  "sodiumdynamiclights.menu.light_sources": "Dynamiska ljuskällor",
+  "sodiumdynamiclights.menu.title": "SodiumDynamicLights-inställningar",
+  "sodiumdynamiclights.menu.canvas.1": "Att avaktivera entities dynamiska ljus rekommenderas med Canvas!",
+  "sodiumdynamiclights.menu.canvas.2": "Dynamiskt ljus med Canvas är prestandakrävande!",
+  "sodiumdynamiclights.option.light_sources.block_entities": "Blockentities",
+  "sodiumdynamiclights.option.light_sources.entities": "Entities",
+  "sodiumdynamiclights.option.light_sources.water_sensitive_check": "Vattenkänslighetstest",
+  "sodiumdynamiclights.option.mode": "Dynamiskt Ljus",
+  "sodiumdynamiclights.tooltip.block_entities": "Aktiverar blockentitiers dynamiska ljus.",
+  "sodiumdynamiclights.tooltip.creeper_lighting": "Aktiverar Creeperns dynamiska ljusläge.\n- %s avaktiverar Creeperns dynamiska ljus.\n- %s sätter en konstant luminans.\n- %s sätter en dynamisk luminans.",
+  "sodiumdynamiclights.tooltip.entities": "Aktiverar entities dynamiska ljus. Notera: spelare är alltid aktiva.",
+  "sodiumdynamiclights.tooltip.mode.1": "Aktiverar dynamiskt ljus. Om påslaget kommer t.ex. en spelare som håller en fackla lysa upp området.",
+  "sodiumdynamiclights.tooltip.mode.2": "%s och %s kommer att lagga lite bakom men minimerar ljusuppdateringar.",
+  "sodiumdynamiclights.tooltip.mode.3": "%s är jämnt dynamiskt ljus.",
+  "sodiumdynamiclights.tooltip.tnt_lighting": "Sätter TNT:ns dynamiska ljusläge.\n- %s avaktiverar TNT:ns dynamiska ljus.\n- %s sätter en konstant luminans.\n- %s sätter en dynamisk luminans.",
+  "sodiumdynamiclights.tooltip.water_sensitive": "Aktiverar det vattenkänsliga ljuskällstestet. Detta innebär att vissa föremål inte kommer att ge ifrån sig ljus när de är under vatten."
+}

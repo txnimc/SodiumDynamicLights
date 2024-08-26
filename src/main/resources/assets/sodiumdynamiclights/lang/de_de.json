@@ -1,0 +1,18 @@
+{
+  "sodiumdynamiclights.menu.light_sources": "Dynamische Lichtquellen",
+  "sodiumdynamiclights.menu.title": "SodiumDynamicLights Einstellungen",
+  "sodiumdynamiclights.menu.canvas.1": "Mit Canvas ist es empfohlen, die dynamische Entitäten-Beleuchtung auszuschalten!",
+  "sodiumdynamiclights.menu.canvas.2": "Dynamische Beleuchtung mit Canvas ist zur Zeit sehr leistungsbedürftig!",
+  "sodiumdynamiclights.option.light_sources.block_entities": "Blockobjekte",
+  "sodiumdynamiclights.option.light_sources.entities": "Objekte",
+  "sodiumdynamiclights.option.light_sources.water_sensitive_check": "Wasserempfindlichkeit",
+  "sodiumdynamiclights.option.mode": "Dynamische Lichter",
+  "sodiumdynamiclights.tooltip.block_entities": "Schaltet dynamische Beleuchtung für Blockobjekte ein.",
+  "sodiumdynamiclights.tooltip.creeper_lighting": "Ändert das Verhalten der dynamische Beleuchtung bei Creepern\n- %s schaltet dieses aus.\n- %s: konstante Beleuchtung durch explodierende Creepers.\n- %s: Zunehmende Beleuchtung durch explodierende Creepers.",
+  "sodiumdynamiclights.tooltip.entities": "Aktiviert die dynamische Beleuchtung von Objekten. (Spielerbeleuchtung ist immer aktiviert)",
+  "sodiumdynamiclights.tooltip.mode.1": "Aktiviert dynamische Beleuchtung. Wenn aktiv, wird z. B. ein Spieler, der eine Fackel hält, die Umgebung beleuchten.",
+  "sodiumdynamiclights.tooltip.mode.2": "%s und %s haben eine kleine Verzögerung, aber lösen weniger Lichtupdates aus.",
+  "sodiumdynamiclights.tooltip.mode.3": "Mit %s sind die Bewegungen von Lichtquellen flüssig.",
+  "sodiumdynamiclights.tooltip.tnt_lighting": "Ändert das Verhalten der dynamischer Beleuchtung von TNT.\n- %s schaltet dieses aus.\n- %s: konstante Beleuchtung.\n- %s steigende Beuleuchtung.",
+  "sodiumdynamiclights.tooltip.water_sensitive": "Aktiviert die Wasserempfindlichkeit: Einige Gegenstände werden kein Licht im Wasser abgeben."
+}

@@ -1,0 +1,21 @@
+{
+  "sodiumdynamiclights.menu.light_sources": "Fuentes de luz dinámica",
+  "sodiumdynamiclights.menu.title": "Configuración de SodiumDynamicLights",
+  "sodiumdynamiclights.menu.canvas.1": "Se recomienda deshabilitar la iluminación dinámica de las entidades con Canvas!",
+  "sodiumdynamiclights.menu.canvas.2": "La iluminación dinámica con Canvas es pesado en rendimiento!",
+  "sodiumdynamiclights.menu.tabs.general": "General",
+  "sodiumdynamiclights.option.light_sources.block_entities": "Entidades de bloque",
+  "sodiumdynamiclights.option.light_sources.entities": "Entidades",
+  "sodiumdynamiclights.option.light_sources.self": "Primera persona",
+  "sodiumdynamiclights.option.light_sources.water_sensitive_check": "Verificación de sensibilidad al agua",
+  "sodiumdynamiclights.option.mode": "Iluminación dinámica",
+  "sodiumdynamiclights.tooltip.block_entities": "Habilita la iluminación dinámica de entidades de bloque.",
+  "sodiumdynamiclights.tooltip.creeper_lighting": "Establece el modo de iluminación dinámica del Creeper.\n%s - Deshabilita la iluminación dinámica del Creeper.\n%s - Establece una luminancia constante.\n%s - Establece una luminancia dinámica.",
+  "sodiumdynamiclights.tooltip.entities": "Habilita la iluminación dinámica de entidades. Nota: los jugadores siempre están activos.",
+  "sodiumdynamiclights.tooltip.mode.1": "Habilita iluminaciónes dinámica. Si está habilitado, un jugador con una antorcha iluminará el área, por ejemplo.",
+  "sodiumdynamiclights.tooltip.mode.2": "%s y %s se retrasarán un poco, pero minimizan las actualizaciones de luz.",
+  "sodiumdynamiclights.tooltip.mode.3": "%s es una iluminación dinámica suave.",
+  "sodiumdynamiclights.tooltip.self_light_source": "Habilita la iluminación dinámica en primera persona. Se recomienda deshabilitar esto si estás utilizando shaders que tienen su propia iluminación dinámica.",
+  "sodiumdynamiclights.tooltip.tnt_lighting": "Establece el modo de iluminación dinámica del TNT.\n%s - Deshabilita la iluminación dinámica TNT.\n%s - Establece una luminancia constante.\n%s - Establece una luminancia dinámica.",
+  "sodiumdynamiclights.tooltip.water_sensitive": "Habilita la verificación de fuentes de luz sensibles al agua. Esto significa que algunos ítems no emitirán luz mientras estén sumergidos en agua."
+}

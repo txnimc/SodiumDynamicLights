@@ -1,0 +1,18 @@
+{
+  "sodiumdynamiclights.menu.light_sources": "Dünaamilised valgusallikad",
+  "sodiumdynamiclights.menu.title": "SodiumDynamicLightsi seaded",
+  "sodiumdynamiclights.menu.canvas.1": "Canvase puhul on soovitatav olemite dünaamiline valgustus keelata!",
+  "sodiumdynamiclights.menu.canvas.2": "Dünaamiline valgustus nõuab hetkel Canvasega kasutades suurt jõudlust!",
+  "sodiumdynamiclights.option.light_sources.block_entities": "Plokiolemid",
+  "sodiumdynamiclights.option.light_sources.entities": "Olemid",
+  "sodiumdynamiclights.option.light_sources.water_sensitive_check": "Vee tundlikkuse kontroll",
+  "sodiumdynamiclights.option.mode": "Dünaamiline valgustus",
+  "sodiumdynamiclights.tooltip.block_entities": "Lubab dünaamilise valgustuse plokiolemitele.",
+  "sodiumdynamiclights.tooltip.creeper_lighting": "Määrab creeperi dünaamilise valgustuse režiimi.\n- %s keelab creeperi dünaamilise valgustuse.\n- %s määrab püsiva ereduse.\n- %s määrab dünaamilise ereduse.",
+  "sodiumdynamiclights.tooltip.entities": "Lubab olemite dünaamilise valgustuse. Märkus: mängijad on alati aktiivsed.",
+  "sodiumdynamiclights.tooltip.mode.1": "Lubab dünaamilise valgustuse. Lubamisel valgustab näiteks tõrvikut hoidev mängija teda ümbritsevat ala.",
+  "sodiumdynamiclights.tooltip.mode.2": "%s ja %s on väikese viiteajaga, kuid minimeerivad valgusuuendusi.",
+  "sodiumdynamiclights.tooltip.mode.3": "%s on sujuv dünaamiline valgustus.",
+  "sodiumdynamiclights.tooltip.tnt_lighting": "Määrab dünamiidi dünaamilise valgustuse režiimi.\n- %s keelab dünamiidi dünaamilise valgustuse.\n- %s määrab püsiva ereduse.\n- %s määrab dünaamilise ereduse.",
+  "sodiumdynamiclights.tooltip.water_sensitive": "Lubab veetundliku valgusallikate kontrolli. See tähendab, et mõned esemed ei erita valgust vee all."
+}

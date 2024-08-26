@@ -1,0 +1,21 @@
+{
+  "sodiumdynamiclights.menu.light_sources": "Sources de lumière dynamiques",
+  "sodiumdynamiclights.menu.title": "Paramètres de SodiumDynamicLights",
+  "sodiumdynamiclights.menu.canvas.1": "La désactivation de l'éclairage dynamique provenant des entités est recommendée avec Canvas !",
+  "sodiumdynamiclights.menu.canvas.2": "L'éclairage dynamique avec Canvas est actuellement très demandant en ressources !",
+  "sodiumdynamiclights.menu.tabs.general": "Général",
+  "sodiumdynamiclights.option.light_sources.block_entities": "Entités de blocs",
+  "sodiumdynamiclights.option.light_sources.entities": "Entités",
+  "sodiumdynamiclights.option.light_sources.self": "Première personne",
+  "sodiumdynamiclights.option.light_sources.water_sensitive_check": "Contrôle de la sensibilité à l'eau",
+  "sodiumdynamiclights.option.mode": "Lumières dynamiques",
+  "sodiumdynamiclights.tooltip.block_entities": "Active les lumières dynamiques provenant des entités de blocs.",
+  "sodiumdynamiclights.tooltip.creeper_lighting": "Détermine le mode d'éclairage dynamique des Creepers.\n- %s: désactive la lumière dynamique pour les Creepers.\n- %s: ajoute un niveau de lumière constant.\n- %s: ajoute un niveau de lumière dynamique.",
+  "sodiumdynamiclights.tooltip.entities": "Active les lumières dynamiques provenant des entités. Note: Toujours actifs pour les joueurs.",
+  "sodiumdynamiclights.tooltip.mode.1": "Active les lumières dynamiques. Par exemple, si activé alors un joueur tenant une torche va éclairer l'espace autour de lui.",
+  "sodiumdynamiclights.tooltip.mode.2": "%s et %s vont avoir un mouvement légèrement saccadé mais minimisent les mises à jour de lumière.",
+  "sodiumdynamiclights.tooltip.mode.3": "%s donne un éclairage dynamique fluide.",
+  "sodiumdynamiclights.tooltip.self_light_source": "Active les lumières dynamiques provenant du personnage première-personne. Il est recommendé de désactiver cette option si des shaders qui ont leur propre lumières dynamiques sont utilisés.",
+  "sodiumdynamiclights.tooltip.tnt_lighting": "Détermine le mode d'éclairage dynamique de la TNT.\n- %s: désactive la lumière dynamique pour la TNT.\n- %s: ajoute un niveau de lumière constant.\n- %s: ajoute un niveau de lumière dynamique.",
+  "sodiumdynamiclights.tooltip.water_sensitive": "Active la vérification des sources de lumière sensibles à l'eau. C'est-à-dire que certains objets ne vont pas émettre de lumière lorsqu'ils sont dans l'eau."
+}

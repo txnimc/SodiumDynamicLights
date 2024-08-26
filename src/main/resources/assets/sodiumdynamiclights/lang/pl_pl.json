@@ -1,0 +1,21 @@
+{
+  "sodiumdynamiclights.menu.light_sources": "Źródła dynamicznego światła",
+  "sodiumdynamiclights.menu.title": "Ustawienia SodiumDynamicLights",
+  "sodiumdynamiclights.menu.canvas.1": "Wyłączenie dynamicznego oświetlenia dla bytów jest zalecane w przypadku użycia Canvas! ",
+  "sodiumdynamiclights.menu.canvas.2": "Na tą chwilę dynamiczne oświetlenie użyte z Canvasem powoduje spadek wydajności!",
+  "sodiumdynamiclights.menu.tabs.general": "Ogólne",
+  "sodiumdynamiclights.option.light_sources.block_entities": "Byty bloków",
+  "sodiumdynamiclights.option.light_sources.entities": "Byty",
+  "sodiumdynamiclights.option.light_sources.self": "Pierwsza osoba",
+  "sodiumdynamiclights.option.light_sources.water_sensitive_check": "Sprawdz. wrażliw. na wodę",
+  "sodiumdynamiclights.option.mode": "Dynamiczne oświetlenie",
+  "sodiumdynamiclights.tooltip.block_entities": "Aktywuje dynamiczne oświetlenie generowane przez byty bloków.",
+  "sodiumdynamiclights.tooltip.creeper_lighting": "Ustawia dynamiczne oświetlenie Creepera.\n- %s deaktywuje dynamiczne oświetlenie Creepera.\n- %s ustawia stałą jasność.\n- %s ustawia dynamiczną jasność.",
+  "sodiumdynamiclights.tooltip.entities": "Aktywuje dynamiczne oświetlenie dla bytów. Uwaga: dla graczy jest to zawsze aktywne.",
+  "sodiumdynamiclights.tooltip.mode.1": "Aktywuje dynamiczne oświetlenie. Jeśli włączone gracz trzymający pochodnie będzie oświetlał pobliski teren.",
+  "sodiumdynamiclights.tooltip.mode.2": "%s oraz %s będą delikatnie opóźnione, jednak zminimalizują ilość aktualizacji oświetlenia.",
+  "sodiumdynamiclights.tooltip.mode.3": "%s jest dokładnym dynamicznym oświetleniem.",
+  "sodiumdynamiclights.tooltip.self_light_source": "Włącza pierwszoosobowe dynamiczne oświetlenie. Zaleca się wyłączenie tej opcji jeśli używasz shaderów które mają własne dynamiczne oświetlenie.",
+  "sodiumdynamiclights.tooltip.tnt_lighting": "Ustawia tryb dynamicznego oświetlenia dla TNT.\n- %s deaktywuje dynamiczne oświetlenie TNT.\n- %s ustawia stałą jasność.\n- %s ustawia dynamiczną jasność.",
+  "sodiumdynamiclights.tooltip.water_sensitive": "Aktywuje sprawdzanie wrażliwości źródła światła na wodę. Oznacza to, że niektóre przedmioty po znalezieniu się w wodzie nie będą wytwarzały światła."
+}

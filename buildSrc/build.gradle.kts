@@ -12,5 +12,4 @@ repositories {
 
 dependencies {
    implementation("me.modmuss50:mod-publish-plugin:0.6.3")
-
 }

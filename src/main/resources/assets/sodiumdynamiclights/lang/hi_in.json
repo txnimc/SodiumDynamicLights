@@ -1,0 +1,18 @@
+{
+  "sodiumdynamiclights.menu.light_sources": "गतिशील प्रकाश स्रोतो",
+  "sodiumdynamiclights.menu.title": "SodiumDynamicLights विन्यास",
+  "sodiumdynamiclights.menu.canvas.1": "कैनवस के साथ संस्थाओं के गतिशील प्रकाश को निष्क्रिय करने की सिफारिश किया गई है!",
+  "sodiumdynamiclights.menu.canvas.2": "कैनवास के साथ गतिशील प्रकाश का प्रदर्शन खराब है!",
+  "sodiumdynamiclights.option.light_sources.block_entities": "प्रखंड अस्तित्व",
+  "sodiumdynamiclights.option.light_sources.entities": "अस्तित्व",
+  "sodiumdynamiclights.option.light_sources.water_sensitive_check": "जल संवेदनशीलता",
+  "sodiumdynamiclights.option.mode": "गतिशील प्रकाश",
+  "sodiumdynamiclights.tooltip.block_entities": "प्रखंड अस्तित्व के गतिशील प्रकाश",
+  "sodiumdynamiclights.tooltip.creeper_lighting": "क्रीपर का गतिशील प्रकाश का प्रकार बदल देता है| \n- %s - क्रीपर का गतिशील प्रकाश को अक्षम करता है|\n- %s - निरंतर चमक सेट करता है|\n- %s - गतिशील प्रकाश सेट करता है|",
+  "sodiumdynamiclights.tooltip.entities": "अस्तित्व का गतिशील प्रकाश सक्षम बनाता है| खिलाड़ी हमेशा सक्रिय रहते हैं|",
+  "sodiumdynamiclights.tooltip.mode.1": "गतिशील प्रकाश का सक्षम करता है | उदाहरण के लिए, यदि सक्षम है, तो एक मशाल वाला खिलाड़ी, क्षेत्र को रोशन करेगा|",
+  "sodiumdynamiclights.tooltip.mode.2": "%s और %s थोड़ा पिछड़ जाएंगे, लेकिन हल्के अपडेट को कम कर देंगे|",
+  "sodiumdynamiclights.tooltip.mode.3": "%s चिकनी गतिशील प्रकाश व्यवस्था है|",
+  "sodiumdynamiclights.tooltip.tnt_lighting": "टीएनटी का गतिशील प्रकाश का प्रकार बदल देता है|\n- %s - टीएनटी का गतिशील प्रकाश को अक्षम करता ह|n- %s - निरंतर चमक सेट करता है| \n- गतिशील प्रकाश सेट करता है|",
+  "sodiumdynamiclights.tooltip.water_sensitive": "जल संवेदनशील प्रकाश स्रोतों के सत्यापन की अनुमति देता है। इसका मतलब है कि पानी में डूबे रहने पर कुछ वस्तुएं प्रकाश का उत्सर्जन नहीं करेंगी|"
+}

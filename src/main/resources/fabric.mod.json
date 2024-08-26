@@ -17,6 +17,11 @@
 	"mixins": [
 		"mixins.${id}.json"
 	],
+	"entrypoints": {
+		"client": [
+          "toni.sodiumdynamiclights.SodiumDynamicLights"
+		]
+	},
 	"depends": {
 		"fabricloader": ">=0.15.0",
 		"minecraft": "${mc}",

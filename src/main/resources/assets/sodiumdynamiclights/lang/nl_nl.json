@@ -1,0 +1,19 @@
+{
+  "sodiumdynamiclights.menu.light_sources": "Dynamische Licht Bronnen",
+  "sodiumdynamiclights.menu.title": "SodiumDynamicLights Instellingen",
+  "sodiumdynamiclights.menu.canvas.1": "Dynamische entiteit lichten is niet aanbevolen in gebruik met Canvas!",
+  "sodiumdynamiclights.menu.canvas.2": "Dynamische lichtbronnen met Canvas presteert momenteel heel zwaar!",
+  "sodiumdynamiclights.menu.tabs.general": "Algemeen",
+  "sodiumdynamiclights.option.light_sources.block_entities": "Blok Entiteiten",
+  "sodiumdynamiclights.option.light_sources.entities": "Entiteiten",
+  "sodiumdynamiclights.option.light_sources.water_sensitive_check": "Water Sensitiviteit Check",
+  "sodiumdynamiclights.option.mode": "Dynamische Lichtbronnen",
+  "sodiumdynamiclights.tooltip.block_entities": "Schakelt dynamische block entiteiten in.",
+  "sodiumdynamiclights.tooltip.creeper_lighting": "Stelt de creeper lichtmodus in.\n- %s zet dynamische creeper lichtbronnen uit.\n- %s zet een constante lichtsterkte.\n- %s zet een dynamische lichtsterkte.",
+  "sodiumdynamiclights.tooltip.entities": "Laat entiteiten dynamische lichtbronnen maken. Lot op: Spelers zijn altijd actief.",
+  "sodiumdynamiclights.tooltip.mode.1": "Zet dynamische lichtbronnen aan. Wanneer aan maken spelers licht als ze een fakkel dragen bijvoorbeeld.",
+  "sodiumdynamiclights.tooltip.mode.2": "%s en %s zullen langzamer reageren, maar licht updates zullen verminderd worden.",
+  "sodiumdynamiclights.tooltip.mode.3": "%s is soepel dynamisch licht",
+  "sodiumdynamiclights.tooltip.tnt_lighting": "Stelt de TNT lichtmodus in.\n- %s zet dynamische TNT lichtbronnen uit.\n- %s zet een constante lichtsterkte.\n- %s zet een dynamische lichtsterkte.",
+  "sodiumdynamiclights.tooltip.water_sensitive": "Maakt licht water-sensitief. Dit betekent dat sommige objecten onder water geen licht geven."
+}

@@ -1,0 +1,21 @@
+{
+  "sodiumdynamiclights.menu.light_sources": "Джерела динамічного освітлення",
+  "sodiumdynamiclights.menu.title": "Налаштування SodiumDynamicLights",
+  "sodiumdynamiclights.menu.canvas.1": "Рекомендовано відключати динамічне освітлення істот із модом Canvas!",
+  "sodiumdynamiclights.menu.canvas.2": "Динамічне освітлення із модом Canvas наразі має низьку продуктивність!",
+  "sodiumdynamiclights.menu.tabs.general": "Загальні",
+  "sodiumdynamiclights.option.light_sources.block_entities": "Блоки-істоти",
+  "sodiumdynamiclights.option.light_sources.entities": "Істоти",
+  "sodiumdynamiclights.option.light_sources.self": "Від першої особи",
+  "sodiumdynamiclights.option.light_sources.water_sensitive_check": "Перевірка чутливості до води",
+  "sodiumdynamiclights.option.mode": "Динамічне освітлення",
+  "sodiumdynamiclights.tooltip.block_entities": "Вмикає динамічне освітлення для блоків-істот.",
+  "sodiumdynamiclights.tooltip.creeper_lighting": "Встановлює режим динамічного освітлення для Кріпера.\n- %s вимикає динамічне освітлення для Кріпера.\n- %s встановлює постійне освітлення.\n- %s встановлює динамічне освітлення.",
+  "sodiumdynamiclights.tooltip.entities": "Вмикає динамічне освітлення істот. Примітка: для гравців завжди увімкнено.",
+  "sodiumdynamiclights.tooltip.mode.1": "Вмикає динамічне освітлення. Для прикладу, якщо увімкнено то гравець, який тримає смолоскип, освітлюватиме область.",
+  "sodiumdynamiclights.tooltip.mode.2": "%s і %s будуть трохи відставати, але мінімізує оновлення світла.",
+  "sodiumdynamiclights.tooltip.mode.3": "%s це плавне динамічне освітлення.",
+  "sodiumdynamiclights.tooltip.self_light_source": "Вмикає динамічне освітлення від першої особи. Рекомендується вимкнути це, якщо ви використовуєте шейдери, які мають власне динамічне освітлення.",
+  "sodiumdynamiclights.tooltip.tnt_lighting": "Встановлює режим динамічного освітлення для динаміту.\n- %s вимикає динамічне освітлення для динаміту.\n- %s встановлює постійне освітлення.\n- %s встановлює динамічне освітлення.",
+  "sodiumdynamiclights.tooltip.water_sensitive": "Вмикає перевірку чутливих до води джерел світла. Це означає, що деякі предмети не випромінюватимуть світло під час занурення у воду."
+}

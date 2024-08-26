@@ -133,6 +133,12 @@ dependencies {
 		settings.depsHandler.addFabric(this)
 		modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fapi")}")
 		modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
+
+		// JarJar Forge Config API
+		include(when (mcVersion) {
+			"1.19.2" -> modApi("net.minecraftforge:forgeconfigapiport-fabric:${property("deps.forgeconfigapi")}")
+			else -> modApi("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${property("deps.forgeconfigapi")}")
+		}!!)
 	}
 
 	if (isForge) {
@@ -179,7 +185,7 @@ loom {
 	}
 }
 
-// Tasks
+
 tasks.withType<JavaCompile>() {
 	options.compilerArgs.add("-Xplugin:Manifold")
 	// modify the JavaCompile task and inject our auto-generated Manifold symbols

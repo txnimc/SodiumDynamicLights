@@ -1,8 +1,0 @@
-﻿{
-  "sodiumleafculling.options.leaf_culling.name": "Leaf Culling Mode",
-  "sodiumleafculling.options.leaf_culling.tooltip": "If enabled, leaves behind other leaves will be culled to improve performance. Hollow will aggressively cull faces, and Solid mode will enable fast solid block rendering of leaves behind other leaves.",
-  "options.leaf_culling.none": "None",
-  "options.leaf_culling.hollow": "Hollow",
-  "options.leaf_culling.solid": "Solid",
-  "options.leaf_culling.solid_aggressive": "Solid Aggressive"
-}
