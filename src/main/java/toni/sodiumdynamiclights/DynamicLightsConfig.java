@@ -11,23 +11,31 @@ package toni.sodiumdynamiclights;
 
 import java.util.HashMap;
 
-import net.neoforged.neoforge.common.ModConfigSpec;
-import net.neoforged.neoforge.common.ModConfigSpec.*;
+
 
 #if FABRIC
 import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
 import net.fabricmc.loader.api.FabricLoader;
+import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec.*;
 #endif
 
 #if NEO
+import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec.*;
+#endif
+
+#if FORGE
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.ForgeConfigSpec.*;
 #endif
 
 public class DynamicLightsConfig {
-	public static final ModConfigSpec SPECS;
+	public static final #if FORGE ForgeConfigSpec #else ModConfigSpec #endif SPECS;
 
 	public static final EnumValue<DynamicLightsMode> DYNAMIC_LIGHTS_MODE;
 
-	public static final BooleanValue ENTITIES_LIGHT_SOURCE;
+	public static final ForgeConfigSpec.BooleanValue ENTITIES_LIGHT_SOURCE;
 	public static final BooleanValue SELF_LIGHT_SOURCE;
 	public static final BooleanValue BLOCK_ENTITIES_LIGHT_SOURCE;
 	public static final BooleanValue WATER_SENSITIVE_CHECK;

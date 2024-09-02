@@ -24,6 +24,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 		"net.caffeinemc.mods.sodium.client.model.light.data.ArrayLightDataCache"
 	}, remap = false)
 public abstract class ArrayLightDataCacheMixin {
+
 	@Dynamic
 	@Inject(method = "get(III)I", at = @At("HEAD"), require = 0)
 	private void sodiumdynamiclights$storeLightPos(int x, int y, int z, CallbackInfoReturnable<Integer> cir) {

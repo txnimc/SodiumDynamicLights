@@ -54,7 +54,8 @@ public final class ItemLightSources {
 	}
 
 	private static void load(ResourceLocation resourceId, Resource resource) {
-		var id = ResourceLocation.fromNamespaceAndPath(resourceId.getNamespace(), resourceId.getPath().replace(".json", ""));
+		var id = #if AFTER_21_1 ResourceLocation.fromNamespaceAndPath #else new ResourceLocation #endif (resourceId.getNamespace(), resourceId.getPath().replace(".json", ""));
+
 		try (var reader = new InputStreamReader(resource.open())) {
 			var json = JsonParser.parseReader(reader).getAsJsonObject();
 

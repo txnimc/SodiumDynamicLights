@@ -10,18 +10,23 @@
 package toni.sodiumdynamiclights.api.item;
 
 import com.google.gson.JsonObject;
+import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import toni.sodiumdynamiclights.SodiumDynamicLights;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
+
+#if AFTER_21_1
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.component.BlockItemStateProperties;
+#endif
 
 import java.util.Optional;
 
@@ -163,11 +168,29 @@ public abstract class ItemLightSource {
 		}
 
 		static int getLuminance(ItemStack stack, BlockState state) {
+			#if AFTER_21_1
 			var nbt = stack.getComponents().getOrDefault(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY);
 
 			if (!nbt.isEmpty()) {
 				state = nbt.apply(state);
 			}
+
+			#else
+			var nbt = stack.getTag();
+
+			if (nbt != null) {
+				var blockStateTag = nbt.getCompound("BlockStateTag");
+				var stateManager = state.getBlock().getStateDefinition();
+
+				for (var key : blockStateTag.getAllKeys()) {
+					var property = stateManager.getProperty(key);
+					if (property != null) {
+						var value = blockStateTag.get(key).toString();
+						state = BlockItem.updateState(state, property, value);
+					}
+				}
+			}
+			#endif
 
 			return state.getLightEmission();
 		}

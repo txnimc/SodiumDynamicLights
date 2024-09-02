@@ -1,12 +1,23 @@
 package toni.sodiumdynamiclights.util;
 
 import com.google.common.collect.ImmutableList;
+
+#if AFTER_21_1
 import net.caffeinemc.mods.sodium.client.gui.options.OptionGroup;
 import net.caffeinemc.mods.sodium.client.gui.options.OptionImpl;
 import net.caffeinemc.mods.sodium.client.gui.options.OptionPage;
 import net.caffeinemc.mods.sodium.client.gui.options.control.CyclingControl;
 import net.caffeinemc.mods.sodium.client.gui.options.control.TickBoxControl;
 import net.caffeinemc.mods.sodium.client.gui.options.storage.SodiumOptionsStorage;
+#else
+import me.jellysquid.mods.sodium.client.gui.options.OptionGroup;
+import me.jellysquid.mods.sodium.client.gui.options.OptionImpl;
+import me.jellysquid.mods.sodium.client.gui.options.OptionPage;
+import me.jellysquid.mods.sodium.client.gui.options.control.CyclingControl;
+import me.jellysquid.mods.sodium.client.gui.options.control.TickBoxControl;
+import me.jellysquid.mods.sodium.client.gui.options.storage.SodiumOptionsStorage;
+#endif
+
 import net.minecraft.network.chat.Component;
 import toni.sodiumdynamiclights.DynamicLightsConfig;
 import toni.sodiumdynamiclights.DynamicLightsMode;
@@ -16,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DynamicLightingPage extends OptionPage {
-    private static final SodiumOptionsStorage mixinsOptionsStorage = new SodiumOptionsStorage();
+    public static final SodiumOptionsStorage mixinsOptionsStorage = new SodiumOptionsStorage();
 
     public DynamicLightingPage() {
         super(Component.translatable("sodium.dynamiclights.options.page"), create());

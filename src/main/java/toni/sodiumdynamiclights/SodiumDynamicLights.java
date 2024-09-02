@@ -15,7 +15,6 @@ import net.minecraft.server.packs.resources.PreparableReloadListener;
 import net.minecraft.server.packs.resources.ReloadableResourceManager;
 import net.minecraft.server.packs.resources.SimplePreparableReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
-import net.neoforged.fml.config.ModConfig;
 import toni.sodiumdynamiclights.accessor.WorldRendererAccessor;
 import toni.sodiumdynamiclights.api.DynamicLightHandlers;
 import toni.sodiumdynamiclights.api.DynamicLightsInitializer;
@@ -48,6 +47,12 @@ import java.util.function.Predicate;
 
 import net.minecraft.server.packs.PackType;
 
+#if AFTER_21_1
+import net.neoforged.fml.config.ModConfig;
+#else
+import net.minecraftforge.common.ForgeConfig;
+#endif
+
 #if FABRIC
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
@@ -67,6 +72,16 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 #endif
 
+#if FORGE
+import net.minecraftforge.event.AddReloadListenerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.common.Mod;
+#endif
+
 /**
  *
  * Represents the SodiumDynamicLights mod.
@@ -76,7 +91,7 @@ import net.neoforged.fml.ModContainer;
  * @since 1.0.0
  */
 
-#if NEO
+#if FORGELIKE
 @Mod("sodiumdynamiclights")
 #endif
 public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #endif {
@@ -97,6 +112,12 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 		modContainer.registerConfig(ModConfig.Type.CLIENT, DynamicLightsConfig.SPECS);
 		#endif
 
+		#if FORGE
+		var context = FMLJavaModLoadingContext.get();
+		var modEventBus = context.getModEventBus();
+		modEventBus.addListener(this::clientSetup);
+		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DynamicLightsConfig.SPECS);
+        #endif
 	}
 
 	#if FABRIC @Override #endif
@@ -129,7 +150,7 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 			});
 		#endif
 
-		#if NEO
+		#if FORGELIKE
 			registerReloadListener(PackType.CLIENT_RESOURCES, new SimplePreparableReloadListener() {
 				@Override
 				protected Object prepare(ResourceManager resourceManager, ProfilerFiller profiler) {
@@ -146,7 +167,7 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 		DynamicLightHandlers.registerDefaultHandlers();
 	}
 
-	#if NEO
+	#if FORGELIKE
 		@SubscribeEvent
 		public void clientSetup(FMLClientSetupEvent event) {
 			onInitializeClient();

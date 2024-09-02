@@ -7,11 +7,15 @@ val settings = object : TxniTemplateSettings {
 		}
 
 		override fun addFabric(deps: DependencyHandlerScope) {
-			deps.modImplementation(modrinth("sodium", "mc1.21-0.6.0-beta.1-fabric"))
+			if (mcVersion == "1.21.1")
+				deps.modImplementation(modrinth("sodium", "mc1.21-0.6.0-beta.1-fabric"))
+			else
+				deps.modImplementation(modrinth("sodium", "mc1.20.1-0.5.11"))
 		}
 
 		override fun addForge(deps: DependencyHandlerScope) {
-
+			//deps.modImplementation(modrinth("embeddium", "0.3.31+mc1.20.1"))
+			deps.modImplementation(modrinth("xenon-forge", "0.3.19+mc1.20.1"))
 		}
 
 		override fun addNeo(deps: DependencyHandlerScope) {
