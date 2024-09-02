@@ -14,10 +14,23 @@ import java.util.HashMap;
 
 
 #if FABRIC
-import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
-import net.fabricmc.loader.api.FabricLoader;
-import net.neoforged.neoforge.common.ModConfigSpec;
-import net.neoforged.neoforge.common.ModConfigSpec.*;
+	import net.fabricmc.loader.api.FabricLoader;
+
+	#if AFTER_21_1
+    import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
+    import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.client.ConfigScreenFactoryRegistry;
+    import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+	import net.neoforged.fml.config.ModConfig;
+    import net.neoforged.neoforge.common.ModConfigSpec;
+    import net.neoforged.neoforge.common.ModConfigSpec.*;
+    #endif
+
+    #if CURRENT_20_1
+	import fuzs.forgeconfigapiport.api.config.v2.ForgeConfigRegistry;
+	import net.minecraftforge.fml.config.ModConfig;
+	import net.minecraftforge.common.ForgeConfigSpec;
+	import net.minecraftforge.common.ForgeConfigSpec.*;
+    #endif
 #endif
 
 #if NEO
@@ -31,11 +44,11 @@ import net.minecraftforge.common.ForgeConfigSpec.*;
 #endif
 
 public class DynamicLightsConfig {
-	public static final #if FORGE ForgeConfigSpec #else ModConfigSpec #endif SPECS;
+	public static final #if BEFORE_21_1 ForgeConfigSpec #else ModConfigSpec #endif SPECS;
 
 	public static final EnumValue<DynamicLightsMode> DYNAMIC_LIGHTS_MODE;
 
-	public static final ForgeConfigSpec.BooleanValue ENTITIES_LIGHT_SOURCE;
+	public static final BooleanValue ENTITIES_LIGHT_SOURCE;
 	public static final BooleanValue SELF_LIGHT_SOURCE;
 	public static final BooleanValue BLOCK_ENTITIES_LIGHT_SOURCE;
 	public static final BooleanValue WATER_SENSITIVE_CHECK;

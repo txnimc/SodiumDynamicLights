@@ -49,8 +49,6 @@ import net.minecraft.server.packs.PackType;
 
 #if AFTER_21_1
 import net.neoforged.fml.config.ModConfig;
-#else
-import net.minecraftforge.common.ForgeConfig;
 #endif
 
 #if FABRIC
@@ -59,7 +57,23 @@ import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
-import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
+
+	#if AFTER_21_1
+    import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
+    import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.client.ConfigScreenFactoryRegistry;
+    import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+	import net.neoforged.fml.config.ModConfig;
+    import net.neoforged.neoforge.common.ModConfigSpec;
+    import net.neoforged.neoforge.common.ModConfigSpec.*;
+    #endif
+
+    #if CURRENT_20_1
+    import fuzs.forgeconfigapiport.api.config.v2.ForgeConfigRegistry;
+	import net.minecraftforge.fml.config.ModConfig;
+	import net.minecraftforge.common.ForgeConfigSpec;
+	import net.minecraftforge.common.ForgeConfigSpec.*;
+    #endif
+
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 #endif
 
@@ -80,6 +94,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.common.ForgeConfig;
 #endif
 
 /**
@@ -126,7 +141,11 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 		this.log("Initializing LambDynamicLights...");
 
 		#if FABRIC
+			#if AFTER_21_1
 			NeoForgeConfigRegistry.INSTANCE.register(SodiumDynamicLights.NAMESPACE, ModConfig.Type.CLIENT, DynamicLightsConfig.SPECS);
+			#else
+			ForgeConfigRegistry.INSTANCE.register(SodiumDynamicLights.NAMESPACE, ModConfig.Type.CLIENT, DynamicLightsConfig.SPECS);
+			#endif
 
 			FabricLoader.getInstance().getEntrypointContainers("dynamiclights", DynamicLightsInitializer.class)
 					.stream().map(EntrypointContainer::getEntrypoint)
@@ -135,7 +154,11 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 			ResourceManagerHelper.get(PackType.CLIENT_RESOURCES).registerReloadListener(new SimpleSynchronousResourceReloadListener() {
 				@Override
 				public ResourceLocation getFabricId() {
+					#if AFTER_21_1
 					return ResourceLocation.fromNamespaceAndPath(NAMESPACE, "dynamiclights_resources");
+					#else
+					return new ResourceLocation(NAMESPACE, "dynamiclights_resources");
+					#endif
 				}
 
 				@Override

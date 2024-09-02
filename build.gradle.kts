@@ -160,12 +160,9 @@ dependencies {
 
 // Loom config
 loom {
-	try {
-		accessWidenerPath.set(rootProject.file("src/main/resources/${mod.id}.accesswidener"))
-	}
-	catch (_: Exception) {
-		println("Could not set accesswidener!")
-	}
+	val awFile = rootProject.file("src/main/resources/${mod.id}-${mcVersion}.accesswidener")
+	if (awFile.exists())
+		accessWidenerPath.set(awFile)
 
 
 	if (loader == "forge") forge {
@@ -239,6 +236,7 @@ tasks.processResources {
 	val map = mapOf(
 		"version" to mod.version,
 		"mc" to mod.mcDep,
+		"mcVersion" to mcVersion,
 		"id" to mod.id,
 		"group" to mod.group,
 		"author" to mod.author,

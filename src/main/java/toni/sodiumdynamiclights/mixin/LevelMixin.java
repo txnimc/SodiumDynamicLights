@@ -40,7 +40,7 @@ public abstract class LevelMixin {
 			at = @At(
 					value = "INVOKE",
 					target = "Lnet/minecraft/world/level/block/entity/TickingBlockEntity;tick()V",
-					shift = At.Shift.AFTER
+					shift = At.Shift.BEFORE
 			),
 			locals = LocalCapture.CAPTURE_FAILHARD
 	)
