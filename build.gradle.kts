@@ -35,7 +35,10 @@ val settings = object : TxniTemplateSettings {
 				deps.requires("fabric-api")
 			}
 
-			deps.requires("sodium")
+			if (isForge)
+				deps.requires("xenon-forge")
+			else
+				deps.requires("sodium")
 		}
 
 		override fun addCurseForge(deps: DependencyContainer) {
@@ -174,7 +177,7 @@ loom {
 
 	runConfigs["client"].apply {
 		ideConfigGenerated(true)
-		vmArgs("-Dmixin.debug.export=true")
+		vmArgs("-Dmixin.debug.export=true", "-Dsodium.checks.issue2561=false")
 		programArgs("--username=nthxny") // Mom look I'm in the codebase!
 		runDir = "../../run/${stonecutter.current.project}/"
 	}
