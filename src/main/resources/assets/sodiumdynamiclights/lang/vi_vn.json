@@ -17,5 +17,21 @@
   "sodiumdynamiclights.tooltip.mode.3": "%s là nguồn sáng động mượt mà.",
   "sodiumdynamiclights.tooltip.self_light_source": "Cho phép nguồn sáng động ở góc nhìn thứ nhất. Bạn nên tắt tính năng này nếu đang sử dụng shader có nguồn sáng động riêng.",
   "sodiumdynamiclights.tooltip.tnt_lighting": "Đặt chế độ chiếu sáng động TNT.\n- %s tắt chiếu sáng động TNT.\n- %s đặt độ chói không đổi.\n- %s đặt độ chói động.",
-  "sodiumdynamiclights.tooltip.water_sensitive": "Cho phép kiểm tra nguồn sáng nhạy cảm với nước. Điều này có nghĩa là một số vật phẩm sẽ không phát ra ánh sáng khi chìm trong nước."
+  "sodiumdynamiclights.tooltip.water_sensitive": "Cho phép kiểm tra nguồn sáng nhạy cảm với nước. Điều này có nghĩa là một số vật phẩm sẽ không phát ra ánh sáng khi chìm trong nước.",
+
+  "sodium.dynamiclights.options.page": "Đèn động",
+  "sodium.dynamiclights.options.mode": "Chế độ Chất lượng",
+  "sodium.dynamiclights.options.mode.desc": "Cấu hình tần suất cập nhật cho các nguồn sáng động",
+  "sodium.dynamiclights.options.self": "Chiếu sáng từ vật cầm tay",
+  "sodium.dynamiclights.options.self.desc": "Bật tính năng chiếu sáng động từ góc nhìn người thứ nhất. Nên tắt nếu bạn đang sử dụng shader có chức năng chiếu sáng động riêng.",
+  "sodium.dynamiclights.options.entities": "Chiếu sáng động cho thực thể",
+  "sodium.dynamiclights.options.entities.desc": "Nếu bật, các thực thể (như quái vật và vật phẩm rơi) sẽ có ánh sáng động.",
+  "sodium.dynamiclights.options.blockentities": "Chiếu sáng động cho thực thể khối",
+  "sodium.dynamiclights.options.blockentities.desc": "Nếu bật, các thực thể khối sẽ có ánh sáng động.",
+  "sodium.dynamiclights.options.underwater": "Tắt khi ở dưới nước",
+  "sodium.dynamiclights.options.underwater.desc": "Bật tính năng kiểm tra nguồn sáng nhạy cảm với nước. Điều này có nghĩa là một số vật phẩm sẽ không phát sáng khi ngâm trong nước.",
+  "sodium.dynamiclights.options.tnt": "Chất lượng ánh sáng TNT",
+  "sodium.dynamiclights.options.tnt.desc": "Cấu hình tần suất cập nhật cho ánh sáng TNT.",
+  "sodium.dynamiclights.options.creeper": "Chất lượng ánh sáng Creeper",
+  "sodium.dynamiclights.options.creeper.desc": "Cấu hình tần suất cập nhật cho ánh sáng Creeper."
 }
