@@ -29,7 +29,7 @@ public abstract class ClientLevelMixin {
 		var entity = this.getEntities().get(entityId);
 		if (entity != null) {
 			var dls = (DynamicLightSource) entity;
-			dls.setDynamicLightEnabled(false);
+			dls.sdl$setDynamicLightEnabled(false);
 		}
 	}
 }

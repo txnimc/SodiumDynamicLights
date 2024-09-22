@@ -83,9 +83,9 @@ public abstract class EntityMixin implements DynamicLightSource {
 		// We do not want to update the entity on the server.
 		if (this.level.isClientSide()) {
 			if (this.isRemoved()) {
-				this.setDynamicLightEnabled(false);
+				this.sdl$setDynamicLightEnabled(false);
 			} else {
-				this.dynamicLightTick();
+				this.sdl$dynamicLightTick();
 				if ((!SodiumDynamicLights.get().config.getEntitiesLightSource().get() && this.getType() != EntityType.PLAYER)
 						|| !DynamicLightHandlers.canLightUp((Entity) (Object) this))
 					this.sodiumdynamiclights$luminance = 0;
@@ -97,36 +97,36 @@ public abstract class EntityMixin implements DynamicLightSource {
 	@Inject(method = "remove", at = @At("TAIL"))
 	public void onRemove(CallbackInfo ci) {
 		if (this.level.isClientSide())
-			this.setDynamicLightEnabled(false);
+			this.sdl$setDynamicLightEnabled(false);
 	}
 
 	@Override
-	public double getDynamicLightX() {
+	public double sdl$getDynamicLightX() {
 		return this.getX();
 	}
 
 	@Override
-	public double getDynamicLightY() {
+	public double sdl$getDynamicLightY() {
 		return this.getEyeY();
 	}
 
 	@Override
-	public double getDynamicLightZ() {
+	public double sdl$getDynamicLightZ() {
 		return this.getZ();
 	}
 
 	@Override
-	public Level getDynamicLightLevel() {
+	public Level sdl$getDynamicLightLevel() {
 		return this.level;
 	}
 
 	@Override
-	public void resetDynamicLight() {
+	public void sdl$resetDynamicLight() {
 		this.sodiumdynamiclights$lastLuminance = 0;
 	}
 
 	@Override
-	public boolean shouldUpdateDynamicLight() {
+	public boolean sdl$shouldUpdateDynamicLight() {
 		var mode = SodiumDynamicLights.get().config.getDynamicLightsMode();
 		if (!mode.isEnabled())
 			return false;
@@ -142,7 +142,7 @@ public abstract class EntityMixin implements DynamicLightSource {
 	}
 
 	@Override
-	public void dynamicLightTick() {
+	public void sdl$dynamicLightTick() {
 		this.sodiumdynamiclights$luminance = this.isOnFire() ? 15 : 0;
 
 		int luminance = DynamicLightHandlers.getLuminanceFrom((Entity) (Object) this);
@@ -151,19 +151,19 @@ public abstract class EntityMixin implements DynamicLightSource {
 	}
 
 	@Override
-	public int getLuminance() {
+	public int sdl$getLuminance() {
 		return this.sodiumdynamiclights$luminance;
 	}
 
 	@Override
 	public boolean sodiumdynamiclights$updateDynamicLight(@NotNull LevelRenderer renderer) {
-		if (!this.shouldUpdateDynamicLight())
+		if (!this.sdl$shouldUpdateDynamicLight())
 			return false;
 		double deltaX = this.getX() - this.sodiumdynamiclights$prevX;
 		double deltaY = this.getY() - this.sodiumdynamiclights$prevY;
 		double deltaZ = this.getZ() - this.sodiumdynamiclights$prevZ;
 
-		int luminance = this.getLuminance();
+		int luminance = this.sdl$getLuminance();
 
 		if (Math.abs(deltaX) > 0.1D || Math.abs(deltaY) > 0.1D || Math.abs(deltaZ) > 0.1D || luminance != this.sodiumdynamiclights$lastLuminance) {
 			this.sodiumdynamiclights$prevX = this.getX();

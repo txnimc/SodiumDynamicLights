@@ -29,7 +29,7 @@ public abstract class LivingEntityMixin extends Entity implements DynamicLightSo
 	}
 
 	@Override
-	public void dynamicLightTick() {
+	public void sdl$dynamicLightTick() {
 		if (!SodiumDynamicLights.get().config.getEntitiesLightSource().get() || !DynamicLightHandlers.canLightUp(this)) {
 			this.sodiumdynamiclights$luminance = 0;
 			return;
@@ -47,7 +47,7 @@ public abstract class LivingEntityMixin extends Entity implements DynamicLightSo
 	}
 
 	@Override
-	public int getLuminance() {
+	public int sdl$getLuminance() {
 		return this.sodiumdynamiclights$luminance;
 	}
 }

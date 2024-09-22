@@ -7,7 +7,7 @@
  * see the LICENSE file.
  */
 
-package toni.sodiumdynamiclights.api;
+package dev.lambdaurora.lambdynlights.api;
 
 /**
  * Represents the entrypoint for SodiumDynamicLights API.

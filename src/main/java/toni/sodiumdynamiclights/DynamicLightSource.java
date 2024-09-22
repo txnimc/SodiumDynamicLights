@@ -27,35 +27,35 @@ public interface DynamicLightSource {
 	 *
 	 * @return the X coordinate
 	 */
-	double getDynamicLightX();
+	double sdl$getDynamicLightX();
 
 	/**
 	 * Returns the dynamic light source Y coordinate.
 	 *
 	 * @return the Y coordinate
 	 */
-	double getDynamicLightY();
+	double sdl$getDynamicLightY();
 
 	/**
 	 * Returns the dynamic light source Z coordinate.
 	 *
 	 * @return the Z coordinate
 	 */
-	double getDynamicLightZ();
+	double sdl$getDynamicLightZ();
 
 	/**
 	 * Returns the dynamic light source world.
 	 *
 	 * @return the world instance
 	 */
-	Level getDynamicLightLevel();
+	Level sdl$getDynamicLightLevel();
 
 	/**
 	 * Returns whether the dynamic light is enabled or not.
 	 *
 	 * @return {@code true} if the dynamic light is enabled, else {@code false}
 	 */
-	default boolean isDynamicLightEnabled() {
+	default boolean sdl$isDynamicLightEnabled() {
 		return SodiumDynamicLights.get().config.getDynamicLightsMode().isEnabled() && SodiumDynamicLights.get().containsLightSource(this);
 	}
 
@@ -67,15 +67,15 @@ public interface DynamicLightSource {
 	 * @param enabled {@code true} if the dynamic light is enabled, else {@code false}
 	 */
 	@ApiStatus.Internal
-	default void setDynamicLightEnabled(boolean enabled) {
-		this.resetDynamicLight();
+	default void sdl$setDynamicLightEnabled(boolean enabled) {
+		this.sdl$resetDynamicLight();
 		if (enabled)
 			SodiumDynamicLights.get().addLightSource(this);
 		else
 			SodiumDynamicLights.get().removeLightSource(this);
 	}
 
-	void resetDynamicLight();
+	void sdl$resetDynamicLight();
 
 	/**
 	 * Returns the luminance of the light source.
@@ -83,19 +83,19 @@ public interface DynamicLightSource {
 	 *
 	 * @return the luminance of the light source
 	 */
-	int getLuminance();
+	int sdl$getLuminance();
 
 	/**
 	 * Executed at each tick.
 	 */
-	void dynamicLightTick();
+	void sdl$dynamicLightTick();
 
 	/**
 	 * Returns whether this dynamic light source should update.
 	 *
 	 * @return {@code true} if this dynamic light source should update, else {@code false}
 	 */
-	boolean shouldUpdateDynamicLight();
+	boolean sdl$shouldUpdateDynamicLight();
 
 	boolean sodiumdynamiclights$updateDynamicLight(@NotNull LevelRenderer renderer);
 

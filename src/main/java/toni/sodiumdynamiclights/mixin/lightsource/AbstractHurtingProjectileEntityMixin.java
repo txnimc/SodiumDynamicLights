@@ -25,13 +25,13 @@ public abstract class AbstractHurtingProjectileEntityMixin extends Entity implem
 	}
 
 	@Override
-	public void dynamicLightTick() {
-		if (!this.isDynamicLightEnabled())
-			this.setDynamicLightEnabled(true);
+	public void sdl$dynamicLightTick() {
+		if (!this.sdl$isDynamicLightEnabled())
+			this.sdl$setDynamicLightEnabled(true);
 	}
 
 	@Override
-	public int getLuminance() {
+	public int sdl$getLuminance() {
 		if (SodiumDynamicLights.get().config.getEntitiesLightSource().get() && DynamicLightHandlers.canLightUp(this))
 			return 14;
 		return 0;

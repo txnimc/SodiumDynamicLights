@@ -53,37 +53,37 @@ public abstract class BlockEntityMixin implements DynamicLightSource {
 	private final LongOpenHashSet sodiumdynamiclights$trackedLitChunkPos = new LongOpenHashSet();
 
 	@Override
-	public double getDynamicLightX() {
+	public double sdl$getDynamicLightX() {
 		return this.worldPosition.getX() + 0.5;
 	}
 
 	@Override
-	public double getDynamicLightY() {
+	public double sdl$getDynamicLightY() {
 		return this.worldPosition.getY() + 0.5;
 	}
 
 	@Override
-	public double getDynamicLightZ() {
+	public double sdl$getDynamicLightZ() {
 		return this.worldPosition.getZ() + 0.5;
 	}
 
 	@Override
-	public Level getDynamicLightLevel() {
+	public Level sdl$getDynamicLightLevel() {
 		return this.level;
 	}
 
 	@Inject(method = "setRemoved", at = @At("TAIL"))
 	private void onRemoved(CallbackInfo ci) {
-		this.setDynamicLightEnabled(false);
+		this.sdl$setDynamicLightEnabled(false);
 	}
 
 	@Override
-	public void resetDynamicLight() {
+	public void sdl$resetDynamicLight() {
 		this.lastLuminance = 0;
 	}
 
 	@Override
-	public void dynamicLightTick() {
+	public void sdl$dynamicLightTick() {
 		// We do not want to update the entity on the server.
 		if (this.level == null || !this.level.isClientSide())
 			return;
@@ -91,19 +91,19 @@ public abstract class BlockEntityMixin implements DynamicLightSource {
 			this.luminance = DynamicLightHandlers.getLuminanceFrom((BlockEntity) (Object) this);
 			SodiumDynamicLights.updateTracking(this);
 
-			if (!this.isDynamicLightEnabled()) {
+			if (!this.sdl$isDynamicLightEnabled()) {
 				this.lastLuminance = 0;
 			}
 		}
 	}
 
 	@Override
-	public int getLuminance() {
+	public int sdl$getLuminance() {
 		return this.luminance;
 	}
 
 	@Override
-	public boolean shouldUpdateDynamicLight() {
+	public boolean sdl$shouldUpdateDynamicLight() {
 		var mode = SodiumDynamicLights.get().config.getDynamicLightsMode();
 		if (!mode.isEnabled())
 			return false;
@@ -120,10 +120,10 @@ public abstract class BlockEntityMixin implements DynamicLightSource {
 
 	@Override
 	public boolean sodiumdynamiclights$updateDynamicLight(@NotNull LevelRenderer renderer) {
-		if (!this.shouldUpdateDynamicLight())
+		if (!this.sdl$shouldUpdateDynamicLight())
 			return false;
 
-		int luminance = this.getLuminance();
+		int luminance = this.sdl$getLuminance();
 
 		if (luminance != this.lastLuminance) {
 			this.lastLuminance = luminance;

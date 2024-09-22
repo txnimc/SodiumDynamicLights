@@ -48,19 +48,19 @@ public abstract class AbstractMinecartEntityMixin extends Entity implements Dyna
 		// We do not want to update the entity on the server.
 		if (this.level().isClientSide()) {
 			if (this.isRemoved()) {
-				this.setDynamicLightEnabled(false);
+				this.sdl$setDynamicLightEnabled(false);
 			} else {
 				if (!SodiumDynamicLights.get().config.getEntitiesLightSource().get() || !DynamicLightHandlers.canLightUp(this))
 					this.sodiumdynamiclights$luminance = 0;
 				else
-					this.dynamicLightTick();
+					this.sdl$dynamicLightTick();
 				SodiumDynamicLights.updateTracking(this);
 			}
 		}
 	}
 
 	@Override
-	public void dynamicLightTick() {
+	public void sdl$dynamicLightTick() {
 		this.sodiumdynamiclights$luminance = Math.max(
 				Math.max(
 						this.isOnFire() ? 15 : 0,
@@ -71,7 +71,7 @@ public abstract class AbstractMinecartEntityMixin extends Entity implements Dyna
 	}
 
 	@Override
-	public int getLuminance() {
+	public int sdl$getLuminance() {
 		return this.sodiumdynamiclights$luminance;
 	}
 }

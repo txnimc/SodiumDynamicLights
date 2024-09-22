@@ -35,7 +35,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements DynamicL
 	}
 
 	@Override
-	public void dynamicLightTick() {
+	public void sdl$dynamicLightTick() {
 		if (!DynamicLightHandlers.canLightUp(this)) {
 			this.sodiumdynamiclights$luminance = 0;
 			return;
@@ -60,7 +60,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements DynamicL
 	}
 
 	@Override
-	public int getLuminance() {
+	public int sdl$getLuminance() {
 		return this.sodiumdynamiclights$luminance;
 	}
 }

@@ -51,19 +51,19 @@ public abstract class PrimedTntEntityMixin extends Entity implements DynamicLigh
 				return;
 
 			if (this.isRemoved()) {
-				this.setDynamicLightEnabled(false);
+				this.sdl$setDynamicLightEnabled(false);
 			} else {
 				if (!SodiumDynamicLights.get().config.getEntitiesLightSource().get() || !DynamicLightHandlers.canLightUp(this))
-					this.resetDynamicLight();
+					this.sdl$resetDynamicLight();
 				else
-					this.dynamicLightTick();
+					this.sdl$dynamicLightTick();
 				SodiumDynamicLights.updateTracking(this);
 			}
 		}
 	}
 
 	@Override
-	public void dynamicLightTick() {
+	public void sdl$dynamicLightTick() {
 		if (this.isOnFire()) {
 			this.sodiumdynamiclights$luminance = 15;
 		} else {
@@ -78,7 +78,7 @@ public abstract class PrimedTntEntityMixin extends Entity implements DynamicLigh
 	}
 
 	@Override
-	public int getLuminance() {
+	public int sdl$getLuminance() {
 		return this.sodiumdynamiclights$luminance;
 	}
 }

@@ -36,12 +36,12 @@ public abstract class BlockAttachedEntityMixin extends Entity implements Dynamic
 		// We do not want to update the entity on the server.
 		if (this.level().isClientSide()) {
 			if (this.isRemoved()) {
-				this.setDynamicLightEnabled(false);
+				this.sdl$setDynamicLightEnabled(false);
 			} else {
 				if (!SodiumDynamicLights.get().config.getEntitiesLightSource().get() || !DynamicLightHandlers.canLightUp(this))
-					this.resetDynamicLight();
+					this.sdl$resetDynamicLight();
 				else
-					this.dynamicLightTick();
+					this.sdl$dynamicLightTick();
 				SodiumDynamicLights.updateTracking(this);
 			}
 		}

@@ -8,7 +8,7 @@ plugins {
     id("systems.manifold.manifold-gradle-plugin") version "0.0.2-alpha" apply false
 }
 
-stonecutter active "1.21.1-fabric" /* [SC] DO NOT EDIT */
+stonecutter active "1.20.1-fabric" /* [SC] DO NOT EDIT */
 
 stonecutter registerChiseled tasks.register("chiseledBuild", stonecutter.chiseled) {
     group = "project"

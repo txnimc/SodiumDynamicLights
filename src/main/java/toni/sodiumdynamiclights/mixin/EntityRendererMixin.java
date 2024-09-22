@@ -27,7 +27,7 @@ public class EntityRendererMixin<T extends Entity> {
 			return; // Do not touch to the value.
 
 		int vanilla = cir.getReturnValueI();
-		int entityLuminance = ((DynamicLightSource) entity).getLuminance();
+		int entityLuminance = ((DynamicLightSource) entity).sdl$getLuminance();
 		if (entityLuminance >= 15)
 			cir.setReturnValue(entityLuminance);
 

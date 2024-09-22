@@ -31,13 +31,13 @@ val settings = object : TxniTemplateSettings {
 	// For configuring the dependecies that will show up on your mod page.
 	override val publishHandler: PublishDependencyHandler get() = object : PublishDependencyHandler {
 		override fun addShared(deps: DependencyContainer) {
+			deps.requires("sodium-options-api")
+
 			if (isFabric) {
 				deps.requires("fabric-api")
 			}
 
-			if (isForge)
-				deps.requires("xenon-forge")
-			else
+			if (!isForge)
 				deps.requires("sodium")
 		}
 
@@ -67,7 +67,7 @@ plugins {
 }
 
 // The manifold Gradle plugin version. Update this if you update your IntelliJ Plugin!
-manifold { manifoldVersion = "2024.1.30" }
+manifold { manifoldVersion = "2024.1.31" }
 
 // Variables
 class ModData {

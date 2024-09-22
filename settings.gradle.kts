@@ -31,4 +31,4 @@ extensions.configure<StonecutterSettings> {
 	create(rootProject)
 }
 
-rootProject.name = "SodiumLeafCulling"
+rootProject.name = "SodiumDynamicLights"

@@ -17,7 +17,7 @@ import net.minecraft.server.packs.resources.SimplePreparableReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 import toni.sodiumdynamiclights.accessor.WorldRendererAccessor;
 import toni.sodiumdynamiclights.api.DynamicLightHandlers;
-import toni.sodiumdynamiclights.api.DynamicLightsInitializer;
+import dev.lambdaurora.lambdynlights.api.DynamicLightsInitializer;
 import toni.sodiumdynamiclights.api.item.ItemLightSources;
 
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -138,7 +138,7 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 	#if FABRIC @Override #endif
 	public void onInitializeClient() {
 		INSTANCE = this;
-		this.log("Initializing LambDynamicLights...");
+		this.log("Initializing SodiumDynamicLights...");
 
 		#if FABRIC
 			#if AFTER_21_1
@@ -269,7 +269,7 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 	 */
 	public int getLightmapWithDynamicLight(@NotNull Entity entity, int lightmap) {
 		int posLightLevel = (int) this.getDynamicLightLevel(entity.getOnPos());
-		int entityLuminance = ((DynamicLightSource) entity).getLuminance();
+		int entityLuminance = ((DynamicLightSource) entity).sdl$getLuminance();
 
 		return this.getLightmapWithDynamicLight(Math.max(posLightLevel, entityLuminance), lightmap);
 	}
@@ -324,12 +324,12 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 	 * @return the dynamic light level at the specified position
 	 */
 	public static double maxDynamicLightLevel(@NotNull BlockPos pos, @NotNull DynamicLightSource lightSource, double currentLightLevel) {
-		int luminance = lightSource.getLuminance();
+		int luminance = lightSource.sdl$getLuminance();
 		if (luminance > 0) {
 			// Can't use Entity#squaredDistanceTo because of eye Y coordinate.
-			double dx = pos.getX() - lightSource.getDynamicLightX() + 0.5;
-			double dy = pos.getY() - lightSource.getDynamicLightY() + 0.5;
-			double dz = pos.getZ() - lightSource.getDynamicLightZ() + 0.5;
+			double dx = pos.getX() - lightSource.sdl$getDynamicLightX() + 0.5;
+			double dy = pos.getY() - lightSource.sdl$getDynamicLightY() + 0.5;
+			double dz = pos.getZ() - lightSource.sdl$getDynamicLightZ() + 0.5;
 
 			double distanceSquared = dx * dx + dy * dy + dz * dz;
 			// 7.75 because else we would have to update more chunks and that's not a good idea.
@@ -351,7 +351,7 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 	 * @param lightSource the light source to add
 	 */
 	public void addLightSource(@NotNull DynamicLightSource lightSource) {
-		if (!lightSource.getDynamicLightLevel().isClientSide())
+		if (!lightSource.sdl$getDynamicLightLevel().isClientSide())
 			return;
 		if (!this.config.getDynamicLightsMode().isEnabled())
 			return;
@@ -369,7 +369,7 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 	 * @return {@code true} if the light source is tracked, else {@code false}
 	 */
 	public boolean containsLightSource(@NotNull DynamicLightSource lightSource) {
-		if (!lightSource.getDynamicLightLevel().isClientSide())
+		if (!lightSource.sdl$getDynamicLightLevel().isClientSide())
 			return false;
 
 		boolean result;
@@ -427,8 +427,8 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 		while (dynamicLightSources.hasNext()) {
 			it = dynamicLightSources.next();
 			dynamicLightSources.remove();
-			if (it.getLuminance() > 0)
-				it.resetDynamicLight();
+			if (it.sdl$getLuminance() > 0)
+				it.sdl$resetDynamicLight();
 			it.sodiumdynamiclights$scheduleTrackedChunksRebuild(Minecraft.getInstance().levelRenderer);
 		}
 
@@ -449,8 +449,8 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 			it = dynamicLightSources.next();
 			if (filter.test(it)) {
 				dynamicLightSources.remove();
-				if (it.getLuminance() > 0)
-					it.resetDynamicLight();
+				if (it.sdl$getLuminance() > 0)
+					it.sdl$resetDynamicLight();
 				it.sodiumdynamiclights$scheduleTrackedChunksRebuild(Minecraft.getInstance().levelRenderer);
 				break;
 			}
@@ -553,13 +553,13 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 	 * @param lightSource the light source
 	 */
 	public static void updateTracking(@NotNull DynamicLightSource lightSource) {
-		boolean enabled = lightSource.isDynamicLightEnabled();
-		int luminance = lightSource.getLuminance();
+		boolean enabled = lightSource.sdl$isDynamicLightEnabled();
+		int luminance = lightSource.sdl$getLuminance();
 
 		if (!enabled && luminance > 0) {
-			lightSource.setDynamicLightEnabled(true);
+			lightSource.sdl$setDynamicLightEnabled(true);
 		} else if (enabled && luminance < 1) {
-			lightSource.setDynamicLightEnabled(false);
+			lightSource.sdl$setDynamicLightEnabled(false);
 		}
 	}
 
