@@ -1,0 +1,134 @@
+name: Publish Snapshot
+
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Publish with gradle
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDKs
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: |
+            17
+            21
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            ./.gradle/loom-cache
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Publish with Gradle
+        uses: Wandalen/wretry.action@master
+        with:
+          command: ./gradlew chiseledBuildAndCollect --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: output
+          path: ./build/libs/**/*
+  run:
+    needs: build
+    strategy:
+      matrix:
+        version:
+          #- { mc: 1.21.1, type: neoforge, modloader: neoforge, regex: .*neoforge.*, java: 21 }
+          - { mc: 1.21.1, type: fabric, modloader: fabric, regex: .*fabric.*, java: 21 }
+          #- { mc: 1.20.1, type: lexforge, modloader: forge, regex: .*forge.*, java: 17 }
+          #- { mc: 1.20.1, type: fabric, modloader: fabric, regex: .*fabric.*, java: 17 }
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: output
+          merge-multiple: 'true'
+          path: ./libs/
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.version.java }}
+      - name: Apt Update
+        run: sudo apt-get update
+      - name: Create mods dir
+        run: mkdir -p run/mods
+      - name: Test List
+        run: ls -R .
+      - name: Test Modrinth
+        run: cat ./libs/*/runtime-test-deps.txt
+      #- name: Download Modrinth Deps
+      #  run: printf "fabric-api\nsodium" | tr '\n' '\0' | tr -d '\r' | xargs -0 -n1 -I{} curl -s --location --globoff 'https://api.modrinth.com/v2/project/{}/version?loaders=[%22fabric%22]&game_versions=[%221.21.1%22]' | jq '.[0].files[0].url' | tr -d '\r' | xargs wget -P run/mods/
+      - name: Test List 2
+        run: ls -R .
+      #- name: Copy mod jar
+      #  run: cp ./libs/*/*${{ matrix.version.type }}*${{ matrix.version.mc }}.jar run/mods
+      - name: Setup HeadlessMC directory
+        run: mkdir HeadlessMC
+        shell: bash
+      - name: Configure HeadlessMC java versions
+        run: echo hmc.java.versions=$JAVA_HOME/bin/java > HeadlessMC/config.properties
+        shell: bash
+      - name: Configure HeadlessMC game directory
+        run: echo hmc.gamedir=$PWD/run >> HeadlessMC/config.properties
+        shell: bash
+      - name: Configure offline mode
+        run: echo hmc.offline=true >> HeadlessMC/config.properties
+        shell: bash
+      - name: Configure Exceptions
+        run: echo hmc.rethrow.launch.exceptions=true >> HeadlessMC/config.properties
+        shell: bash
+      - name: Configure Failing on wrong command
+        run: echo hmc.exit.on.failed.command=true >> HeadlessMC/config.properties
+        shell: bash
+      - name: Configure Dummy Assets
+        run: echo hmc.assets.dummy=true >> HeadlessMC/config.properties
+        shell: bash
+      - name: Get HeadlessMC
+        run: wget -O headlessmc-launcher.jar https://github.com/3arthqu4ke/headlessmc/releases/download/2.3.0/headlessmc-launcher-2.3.0.jar
+        shell: bash
+      - name: Download ${{ matrix.version.mc }}
+        run: java -jar headlessmc-launcher.jar --command download ${{ matrix.version.mc }}
+        shell: bash
+      - name: Download Fabric ${{ matrix.version.mc }}
+        run: java -jar headlessmc-launcher.jar --command ${{ matrix.version.modloader }} ${{ matrix.version.mc }} --java ${{ matrix.version.java }}
+        shell: bash
+      - name: List versions
+        run: java -jar headlessmc-launcher.jar --command versions
+        shell: bash
+      - name: Make mods dir
+        run: mkdir -p run/mods
+        shell: bash
+      - name: Download mc-runtime-test jar ${{ matrix.version.modloader }}
+        run: wget -O run/mods/mc-runtime-test-${{ matrix.version.mc }}-2.4.0-${{ matrix.version.modloader }}-release.jar https://github.com/3arthqu4ke/mc-runtime-test/releases/download/2.4.0/mc-runtime-test-${{ matrix.version.mc }}-2.4.0-${{ matrix.version.modloader }}-release.jar
+        shell: bash
+      - name: Configure Accessibility
+        run: echo onboardAccessibility:false >> run/options.txt
+        shell: bash
+      - name: LS mods dir
+        run: ls run/mods
+        shell: bash
+      - name: Run headless test
+        uses: coactions/setup-xvfb@v1
+        with:
+          run: java -jar headlessmc-launcher.jar --command launch ${{ matrix.version.regex }} -regex --jvm -Djava.awt.headless=true
+          working-directory: ./
+      #- name: Run the MC client
+      #  uses: 3arthqu4ke/mc-runtime-test@2.4.0
+      #  with:
+      #    mc: ${{ matrix.version.mc }}
+      #    modloader: ${{ matrix.version.modloader }}
+      #    regex: ${{ matrix.version.regex }}
+      #    java: ${{ matrix.version.java }}
+      #    mc-runtime-test: none #${{ matrix.version.type }}
+      #    xvfb: true
+      #    hmc-version: 2.3.0
+      #    headlessmc-command: --jvm -Djava.awt.headless=true

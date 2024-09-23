@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.incremental.createDirectory
+
 val settings = object : TxniTemplateSettings {
 
 	// -------------------- Dependencies ---------------------- //
@@ -8,9 +10,22 @@ val settings = object : TxniTemplateSettings {
 
 		override fun addFabric(deps: DependencyHandlerScope) {
 			if (mcVersion == "1.21.1")
+			{
 				deps.modImplementation(modrinth("sodium", "mc1.21-0.6.0-beta.1-fabric"))
+				deps.modRuntimeOnly(modrinth("spell-engine", "1.1.1+1.21.1"))
+				deps.modRuntimeOnly(modrinth("cloth-config", "15.0.140+fabric"))
+				deps.modRuntimeOnly(modrinth("playeranimator", "2.0.0-alpha1+1.21-fabric"))
+				deps.modRuntimeOnly(modrinth("spell-power", "1.0.5+1.21.1"))
+				deps.modRuntimeOnly(modrinth("trinkets", "3.10.0"))
+				deps.modRuntimeOnly("org.ladysnake.cardinal-components-api:cardinal-components-base:6.1.1")
+				deps.modRuntimeOnly("org.ladysnake.cardinal-components-api:cardinal-components-entity:6.1.1")
+
+				deps.runtimeOnly("com.github.ZsoltMolnarrr:TinyConfig:2.3.2")
+			}
 			else
+			{
 				deps.modImplementation(modrinth("sodium", "mc1.20.1-0.5.11"))
+			}
 		}
 
 		override fun addForge(deps: DependencyHandlerScope) {
@@ -113,6 +128,7 @@ repositories {
 	maven("https://raw.githubusercontent.com/Fuzss/modresources/main/maven/")
 	maven("https://maven.parchmentmc.org")
 	maven("https://maven.su5ed.dev/releases")
+	maven("https://maven.ladysnake.org/releases")
 }
 
 dependencies {
@@ -209,14 +225,13 @@ tasks.register<RenameExampleMod>("renameExampleMod", rootDir, mod.id, mod.name, 
 	description = "Renames the example mod to match the mod ID, name, and display name in gradle.properties"
 }
 
-
-
-
 val buildAndCollect = tasks.register<Copy>("buildAndCollect") {
 	group = "build"
 	from(tasks.remapJar.get().archiveFile)
 	into(rootProject.layout.buildDirectory.file("libs/${mod.version}"))
 	dependsOn("build")
+	rootProject.layout.buildDirectory.dir("libs/${mod.version}/").get().asFile.createDirectory()
+	rootProject.layout.buildDirectory.file("libs/${mod.version}/runtime-test-deps.txt").get().asFile.writeText("sodium\nfabric-api")
 }
 
 if (stonecutter.current.isActive) {

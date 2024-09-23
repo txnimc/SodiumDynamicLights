@@ -52,6 +52,7 @@ import net.neoforged.fml.config.ModConfig;
 #endif
 
 #if FABRIC
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.fabricmc.api.ClientModInitializer;
@@ -141,6 +142,10 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 		this.log("Initializing SodiumDynamicLights...");
 
 		#if FABRIC
+			ClientLifecycleEvents.CLIENT_STOPPING.register((mc) -> {
+				DynamicLightsConfig.SPECS.save();
+			});
+
 			#if AFTER_21_1
 			NeoForgeConfigRegistry.INSTANCE.register(SodiumDynamicLights.NAMESPACE, ModConfig.Type.CLIENT, DynamicLightsConfig.SPECS);
 			#else
