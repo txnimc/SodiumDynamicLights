@@ -46,7 +46,10 @@ public class DynamicLightingPage extends OptionPage {
                         DynamicLightsMode.SLOW.getTranslatedText(),
                         DynamicLightsMode.REALTIME.getTranslatedText()
                 }))
-                .setBinding((options, value) -> DynamicLightsConfig.DYNAMIC_LIGHTS_MODE.set(value),
+                .setBinding((options, value) -> {
+                            DynamicLightsConfig.DYNAMIC_LIGHTS_MODE.set(value);
+                            DynamicLightsConfig.SPECS.save();
+                        },
                             (options) -> DynamicLightsConfig.DYNAMIC_LIGHTS_MODE.get())
                 .build());
 
@@ -57,7 +60,10 @@ public class DynamicLightingPage extends OptionPage {
                 .setName(Component.translatable("sodium.dynamiclights.options.self"))
                 .setTooltip(Component.translatable("sodium.dynamiclights.options.self.desc"))
                 .setControl(TickBoxControl::new)
-                .setBinding((options, value) -> DynamicLightsConfig.SELF_LIGHT_SOURCE.set(value),
+                .setBinding((options, value) -> {
+                            DynamicLightsConfig.SELF_LIGHT_SOURCE.set(value);
+                            DynamicLightsConfig.SPECS.save();
+                        },
                             (options) -> DynamicLightsConfig.SELF_LIGHT_SOURCE.get())
                 .build());
 
@@ -65,7 +71,10 @@ public class DynamicLightingPage extends OptionPage {
                 .setName(Component.translatable("sodium.dynamiclights.options.entities"))
                 .setTooltip(Component.translatable("sodium.dynamiclights.options.entities.desc"))
                 .setControl(TickBoxControl::new)
-                .setBinding((options, value) -> DynamicLightsConfig.ENTITIES_LIGHT_SOURCE.set(value),
+                .setBinding((options, value) -> {
+                            DynamicLightsConfig.ENTITIES_LIGHT_SOURCE.set(value);
+                            DynamicLightsConfig.SPECS.save();
+                        },
                             (options) -> DynamicLightsConfig.ENTITIES_LIGHT_SOURCE.get())
                 .build());
 
@@ -73,7 +82,10 @@ public class DynamicLightingPage extends OptionPage {
                 .setName(Component.translatable("sodium.dynamiclights.options.blockentities"))
                 .setTooltip(Component.translatable("sodium.dynamiclights.options.blockentities.desc"))
                 .setControl(TickBoxControl::new)
-                .setBinding((options, value) -> DynamicLightsConfig.BLOCK_ENTITIES_LIGHT_SOURCE.set(value),
+                .setBinding((options, value) -> {
+                            DynamicLightsConfig.BLOCK_ENTITIES_LIGHT_SOURCE.set(value);
+                            DynamicLightsConfig.SPECS.save();
+                        },
                             (options) -> DynamicLightsConfig.BLOCK_ENTITIES_LIGHT_SOURCE.get())
                 .build());
 
@@ -81,7 +93,10 @@ public class DynamicLightingPage extends OptionPage {
                 .setName(Component.translatable("sodium.dynamiclights.options.underwater"))
                 .setTooltip(Component.translatable("sodium.dynamiclights.options.underwater.desc"))
                 .setControl(TickBoxControl::new)
-                .setBinding((options, value) -> DynamicLightsConfig.WATER_SENSITIVE_CHECK.set(value),
+                .setBinding((options, value) -> {
+                            DynamicLightsConfig.WATER_SENSITIVE_CHECK.set(value);
+                            DynamicLightsConfig.SPECS.save();
+                        },
                             (options) -> DynamicLightsConfig.WATER_SENSITIVE_CHECK.get())
                 .build());
 
@@ -96,7 +111,10 @@ public class DynamicLightingPage extends OptionPage {
                         ExplosiveLightingMode.SIMPLE.getTranslatedText(),
                         ExplosiveLightingMode.FANCY.getTranslatedText(),
                 }))
-                .setBinding((options, value) -> DynamicLightsConfig.TNT_LIGHTING_MODE.set(value),
+                .setBinding((options, value) -> {
+                            DynamicLightsConfig.TNT_LIGHTING_MODE.set(value);
+                            DynamicLightsConfig.SPECS.save();
+                        },
                             (options) -> DynamicLightsConfig.TNT_LIGHTING_MODE.get())
                 .build());
 
@@ -108,7 +126,10 @@ public class DynamicLightingPage extends OptionPage {
                         ExplosiveLightingMode.SIMPLE.getTranslatedText(),
                         ExplosiveLightingMode.FANCY.getTranslatedText(),
                 }))
-                .setBinding((options, value) -> DynamicLightsConfig.CREEPER_LIGHTING_MODE.set(value),
+                .setBinding((options, value) -> {
+                            DynamicLightsConfig.CREEPER_LIGHTING_MODE.set(value);
+                            DynamicLightsConfig.SPECS.save();
+                        },
                             (options) -> DynamicLightsConfig.CREEPER_LIGHTING_MODE.get())
                 .build());
 
