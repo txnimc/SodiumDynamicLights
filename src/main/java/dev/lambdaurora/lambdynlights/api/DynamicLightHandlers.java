@@ -7,7 +7,7 @@
  * see the LICENSE file.
  */
 
-package toni.sodiumdynamiclights.api;
+package dev.lambdaurora.lambdynlights.api;
 
 import net.minecraft.util.Mth;
 import toni.sodiumdynamiclights.SodiumDynamicLights;

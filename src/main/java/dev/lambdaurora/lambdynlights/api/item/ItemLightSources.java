@@ -7,7 +7,7 @@
  * see the LICENSE file.
  */
 
-package toni.sodiumdynamiclights.api.item;
+package dev.lambdaurora.lambdynlights.api.item;
 
 import com.google.gson.JsonParser;
 import net.minecraft.resources.ResourceLocation;

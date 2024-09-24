@@ -7,11 +7,9 @@
  * see the LICENSE file.
  */
 
-package toni.sodiumdynamiclights.api.item;
+package dev.lambdaurora.lambdynlights.api.item;
 
 import com.google.gson.JsonObject;
-import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import toni.sodiumdynamiclights.SodiumDynamicLights;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;

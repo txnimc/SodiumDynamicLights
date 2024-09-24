@@ -10,7 +10,7 @@
 package toni.sodiumdynamiclights.accessor;
 
 import net.minecraft.network.chat.Component;
-import toni.sodiumdynamiclights.api.DynamicLightHandler;
+import dev.lambdaurora.lambdynlights.api.DynamicLightHandler;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.entity.BlockEntity;

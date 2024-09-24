@@ -16,9 +16,9 @@ import net.minecraft.server.packs.resources.ReloadableResourceManager;
 import net.minecraft.server.packs.resources.SimplePreparableReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 import toni.sodiumdynamiclights.accessor.WorldRendererAccessor;
-import toni.sodiumdynamiclights.api.DynamicLightHandlers;
 import dev.lambdaurora.lambdynlights.api.DynamicLightsInitializer;
-import toni.sodiumdynamiclights.api.item.ItemLightSources;
+import dev.lambdaurora.lambdynlights.api.DynamicLightHandlers;
+import dev.lambdaurora.lambdynlights.api.item.ItemLightSources;
 
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.Mth;
