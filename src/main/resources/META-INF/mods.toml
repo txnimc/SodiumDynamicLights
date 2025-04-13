@@ -13,6 +13,7 @@ authors="${author}, LambdAurora"
 description="${description}"
 logoFile="assets/${namespace}/textures/mod_logo.png"
 displayURL = "https://github.com/${github}/${name}/"
+displayTest="IGNORE_ALL_VERSION"
 
 [[mixins]]
 config = "mixins.${id}.json"
