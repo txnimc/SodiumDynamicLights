@@ -17,5 +17,21 @@
   "sodiumdynamiclights.tooltip.mode.3": "%s es una iluminación dinámica suave.",
   "sodiumdynamiclights.tooltip.self_light_source": "Habilita la iluminación dinámica en primera persona. Se recomienda deshabilitar esto si estás utilizando shaders que tienen su propia iluminación dinámica.",
   "sodiumdynamiclights.tooltip.tnt_lighting": "Establece el modo de iluminación dinámica del TNT.\n%s - Deshabilita la iluminación dinámica TNT.\n%s - Establece una luminancia constante.\n%s - Establece una luminancia dinámica.",
-  "sodiumdynamiclights.tooltip.water_sensitive": "Habilita la verificación de fuentes de luz sensibles al agua. Esto significa que algunos ítems no emitirán luz mientras estén sumergidos en agua."
+  "sodiumdynamiclights.tooltip.water_sensitive": "Habilita la verificación de fuentes de luz sensibles al agua. Esto significa que algunos ítems no emitirán luz mientras estén sumergidos en agua.",
+
+  "sodium.dynamiclights.options.page": "Luces Dinámicas",
+  "sodium.dynamiclights.options.mode": "Modo de Calidad",
+  "sodium.dynamiclights.options.mode.desc": "Configura la tasa de actualización para las fuentes de luz dinámica",
+  "sodium.dynamiclights.options.self": "Iluminación en Mano",
+  "sodium.dynamiclights.options.self.desc": "Habilita la iluminación dinámica en primera persona. Se recomienda deshabilitar esto si estás utilizando shaders que tienen su propia iluminación dinámica.",
+  "sodium.dynamiclights.options.entities": "Iluminación Dinámica de Entidades",
+  "sodium.dynamiclights.options.entities.desc": "Si está habilitado, las entidades (como mobs y objetos caídos) tendrán iluminación dinámica.",
+  "sodium.dynamiclights.options.blockentities": "Iluminación Dinámica de Entidades de Bloque",
+  "sodium.dynamiclights.options.blockentities.desc": "Si está habilitado, las entidades de bloque tendrán iluminación dinámica.",
+  "sodium.dynamiclights.options.underwater": "Extinguir Bajo el Agua",
+  "sodium.dynamiclights.options.underwater.desc": "Habilita la verificación de fuentes de luz sensibles al agua. Esto significa que algunos ítems no emitirán luz mientras estén sumergidos en agua.",
+  "sodium.dynamiclights.options.tnt": "Calidad de Iluminación del TNT",
+  "sodium.dynamiclights.options.tnt.desc": "Configura la tasa de actualización para la iluminación del TNT.",
+  "sodium.dynamiclights.options.creeper": "Calidad de Iluminación del Creeper",
+  "sodium.dynamiclights.options.creeper.desc": "Configura la tasa de actualización para la iluminación del Creeper."
 }
