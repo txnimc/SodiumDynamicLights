@@ -91,6 +91,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 #if NEO
 #if mc >= 215
 import net.neoforged.neoforge.event.AddServerReloadListenersEvent;
+import net.neoforged.neoforge.client.event.AddClientReloadListenersEvent;
 #else
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
 #endif
@@ -141,6 +142,10 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 		#if NEO
 		modEventBus.addListener(this::clientSetup);
 		modContainer.registerConfig(ModConfig.Type.CLIENT, DynamicLightsConfig.SPECS);
+		#if mc >= 215
+		modEventBus.addListener(SodiumDynamicLights::addClientReloadListeners);
+		registerLightSourceReloadListener();
+		#endif
 		#endif
 
 		#if FORGE
@@ -150,6 +155,22 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DynamicLightsConfig.SPECS);
         #endif
 	}
+
+	#if FORGELIKE
+	public static void registerLightSourceReloadListener() {
+		registerReloadListener(PackType.CLIENT_RESOURCES, new SimplePreparableReloadListener() {
+			@Override
+			protected Object prepare(ResourceManager resourceManager, ProfilerFiller profiler) {
+				return null;
+			}
+
+			@Override
+			protected void apply(Object object, ResourceManager resourceManager, ProfilerFiller profiler) {
+				ItemLightSources.load(resourceManager);
+			}
+		});
+	}
+	#endif
 
 	#if FABRIC @Override #endif
 	public void onInitializeClient() {
@@ -224,17 +245,9 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 		#endif
 
 		#if FORGELIKE
-			registerReloadListener(PackType.CLIENT_RESOURCES, new SimplePreparableReloadListener() {
-				@Override
-				protected Object prepare(ResourceManager resourceManager, ProfilerFiller profiler) {
-					return null;
-				}
-
-				@Override
-				protected void apply(Object object, ResourceManager resourceManager, ProfilerFiller profiler) {
-					ItemLightSources.load(resourceManager);
-				}
-			});
+		#if mc < 215
+		registerLightSourceReloadListener();
+		#endif
 		#endif
 
 		DynamicLightHandlers.registerDefaultHandlers();
@@ -248,21 +261,36 @@ public class SodiumDynamicLights #if FABRIC implements ClientModInitializer #end
 
 		private static List<PreparableReloadListener> serverDataReloadListeners = Lists.newArrayList();
 
+		#if mc >= 215
+		private static List<PreparableReloadListener> clientResourceReloadListeners = Lists.newArrayList();
+		#endif
+
 		public static void registerReloadListener(PackType type, SimplePreparableReloadListener listener) {
 			if (type == PackType.SERVER_DATA) {
 				serverDataReloadListeners.add(listener);
 			} else if (type == PackType.CLIENT_RESOURCES) {
+				#if mc < 215
 				registerClient(listener);
+				#else
+				clientResourceReloadListeners.add(listener);
+				#endif
 			}
 		}
 
+		#if mc < 215
 		private static void registerClient(PreparableReloadListener listener) {
-			#if mc < 215
-			((ReloadableResourceManager) Minecraft.getInstance().getResourceManager()).registerReloadListener(listener);
-			#endif
+
+			((ReloadableResourceManager) Minecraft.getInstance().getResourceManager()).registerReloadListener(listener)
 		}
+		#endif
 
 		#if mc >= 215
+		public static void addClientReloadListeners(AddClientReloadListenersEvent event) {
+			for (PreparableReloadListener listener : clientResourceReloadListeners) {
+				event.addListener(ResourceLocation.fromNamespaceAndPath(NAMESPACE, "assets"), listener);
+			}
+		}
+
 		@SubscribeEvent
 		public static void addReloadListeners(AddServerReloadListenersEvent event) {
 			for (PreparableReloadListener listener : serverDataReloadListeners) {
